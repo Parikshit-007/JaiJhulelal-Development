@@ -52,7 +52,7 @@
                                                 <input type="text" class="form-control my-2 my-lg-1" id="name_results" name="name_results" placeholder="Name">
                                             </div>
                                             <div class="form-group col-lg-3 col-md-6">
-                                                <input type="text" placeholder="Category" name="profession" id="profession" class="form-control w-100 bg-white" list="categoryList" required>
+                                                <input type="text" placeholder="Category" name="category_name" id="category_name" class="form-control w-100 bg-white" list="categoryList" required>
                                                 <datalist id="categoryList">
                                                     <option value="Estate Agent">Estate Agent</option>
                                                     <option value="Papad Seller">Papad Seller</option>
@@ -278,7 +278,8 @@
                         <div class="category-block">
                             <a href="{% url 'separate_profession' 'estate_agent' %}">
                                 <div class="header">
-                                    <i class="fa fa-laptop icon-bg-1"></i>
+                                    <i class="fa fa-home icon-bg-1"></i>
+                                    <!-- Change the icon class -->
                                     <h4>Estate Agent</h4>
                                 </div>
                             </a>
@@ -289,8 +290,9 @@
                         <div class="category-block">
                             <a href="{% url 'separate_profession' 'papad_seller' %}">
                                 <div class="header">
-                                    <i class="fa fa-laptop icon-bg-2"></i>
-                                    <h4>Entrepreneur</h4>
+                                    <i class="fa fa-cutlery icon-bg-2"></i>
+                                    <!-- Change the icon class -->
+                                    <h4>Papad Seller</h4>
                                 </div>
                             </a>
                         </div>
@@ -300,7 +302,8 @@
                         <div class="category-block">
                             <a href="{% url 'separate_profession' 'maharaj_swami' %}">
                                 <div class="header">
-                                    <i class="fa fa-laptop icon-bg-3"></i>
+                                    <i class="fa fa-book icon-bg-3"></i>
+                                    <!-- Change the icon class -->
                                     <h4>Maharaj Swami</h4>
                                 </div>
                             </a>
@@ -317,50 +320,57 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
                         <div class="category-block">
                             <a href="{% url 'separate_profession' 'rasoiyo' %}">
                                 <div class="header">
-                                    <i class="fa fa-laptop icon-bg-5"></i>
+                                    <i class="fa fa-cutlery icon-bg-5"></i>
+                                    <!-- Change the icon class -->
                                     <h4>Rasoiyo</h4>
                                 </div>
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
                         <div class="category-block">
                             <a href="{% url 'separate_profession' 'maitinwaro' %}">
                                 <div class="header">
-                                    <i class="fa fa-laptop icon-bg-6"></i>
-                                    <h4>Maitinwaro</h4>
+                                    <i class="fa fa-male icon-bg-6"></i>
+                                    <!-- Change the icon class -->
+                                    <h4>MMaitinwaro</h4>
+                                    <!-- Update the title -->
                                 </div>
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
                         <div class="category-block">
                             <a href="{% url 'separate_profession' 'maitinwari' %}">
                                 <div class="header">
-                                    <i class="fa fa-laptop icon-bg-7"></i>
+                                    <i class="fa fa-female icon-bg-7"></i>
+                                    <!-- Change the icon class -->
                                     <h4>Maitinwari</h4>
+                                    <!-- Update the title -->
                                 </div>
                             </a>
                         </div>
                     </div>
+
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
                         <div class="category-block">
                             <div class="header">
-                                <i class="fa fa-music icon-bg-8"></i>
+                                <i class="fa fa-ellipsis-h icon-bg-8"></i>
+                                <!-- Change the icon class -->
                                 <h4>More</h4>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-        <!-- Container End -->
 </section>
 
 

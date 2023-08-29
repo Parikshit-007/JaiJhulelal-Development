@@ -46,8 +46,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="search-result bg-gray">
-                    <h2>Results For "Estate Agent"</h2>
-                    <p>{{verified_count|default:0 }} Results on {{current_date|date:"d F Y" }}</p>
+                    <h2>Results For "{{ profession_name }}"</h2>
+                    <p>{{ result_count }}</p>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            {% for agent in agents %}
+            {% for agent in professionals %}
             <div class="product-grid-list">
                 <div class="row mt-30">
                     <div class="col-lg-4 col-md-6">
