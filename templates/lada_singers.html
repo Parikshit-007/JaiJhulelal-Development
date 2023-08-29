@@ -55,11 +55,11 @@
                     <div class="col-md-6 text-center text-md-left">
                         <strong>Short</strong>
                         <select>
-								<option>Most Recent</option>
-								<option value="1">Most Popular</option>
-								<option value="2">Lowest Price</option>
-								<option value="4">Highest Price</option>
-							</select>
+                            <option>Most Recent</option>
+                            <option value="1">Most Popular</option>
+                            <option value="2">Lowest Price</option>
+                            <option value="4">Highest Price</option>
+                        </select>
                     </div>
                     <div class="col-md-6 text-center text-md-right mt-2 mt-md-0">
                         <div class="view">
@@ -76,51 +76,43 @@
                     </div>
                 </div>
             </div>
-            {% for agent in agents %}
-            <div class="product-grid-list">
-                <div class="row mt-30">
-                    <div class="col-lg-4 col-md-6">
-                        <!-- product card -->
-                        <div class="product-item bg-light">
-                            <div class="card">
-                                <div class="thumb-content">
-                                    <!-- <div class="price">$200</div> -->
-                                    <a href="/main/fullview/{{agent.id}}/">
-                                        <img class="card-img-top img-fluid" src="{{ agent.profile_image.url }}" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="/main/fullview/{{agent.id}}/">{{ agent.user.username}}</a></h4>
-                                    <ul class="list-inline product-meta">
-                                        <li class="list-inline-item">
-                                            <a href="/main/fullview/{{agent.id}}/"><i class="fa fa-folder-open-o"></i>Electronics</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="/fullview/{{agents.id}}"><i class="fa fa-calendar"></i>26th December</a>
-                                        </li>
+            <div class="row">
+                {% for agent in professionals %}
+                <div class="col-lg-3 col-md-6">
+                    <!-- product card -->
+                    <div class="product-item bg-light">
+                        <div class="card">
+                            <div class="thumb-content">
+                                <a href="/main/fullview/{{agent.id}}/">
+                                    <img class="card-img-top img-fluid" src="{{ agent.profile_image.url }}" alt="Card image cap">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title"><a href="/main/fullview/{{agent.id}}/">{{ agent.user.get_full_name }}</a></h4>
+                                <ul class="list-inline product-meta">
+                                    <li class="list-inline-item">
+                                        <a href="/main/fullview/{{agent.id}}/"><i class="fa fa-folder-open-o"></i>{{ agent.profession }}</a>
+                                    </li>
+                                </ul>
+                                <p class="card-text">{{ agent.desc }}</p>
+                                <div class="product-ratings">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                        <li class="list-inline-item"><i class="fa fa-star"></i></li>
                                     </ul>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
-                                    <div class="product-ratings">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
-
-
-
                 </div>
-            </div>{% endfor %}
+                {% if forloop.counter|divisibleby:4 and not forloop.last %}
+            </div>
+            <div class="row">
+                {% endif %} {% endfor %}
+            </div>
         </div>
         <div class="pagination justify-content-center">
             <nav aria-label="Page navigation example">
@@ -144,9 +136,7 @@
             </nav>
         </div>
     </div>
-    </div>
-    </div>
-</section>{% endblock %}
+</section>
 <!--============================
     =            Footer            =
     =============================-->
