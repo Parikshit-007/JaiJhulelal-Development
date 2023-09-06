@@ -2,15 +2,18 @@ from django.db.models import Q
 from main.models import Professional
 from datetime import date
 from django.shortcuts import render
+
 def search(request):
     query = request.GET.get('q', '')
     name_results = request.GET.get('name_results', '').strip()
-    profession_results = request.GET.get('profession_results', '').strip().lower()
+    profession_results = request.GET.get('profession_results', '').strip().lower()  # Normalize to lowercase
     address_results = request.GET.get('address_results', '').strip()
 
     professionals = Professional.objects.all()
 
     if profession_results:
+        # Normalize the profession value to lowercase before filtering
+        profession_results = profession_results.lower()
         professionals = professionals.filter(profession__iexact=profession_results)
     if address_results:
         professionals = professionals.filter(address__icontains=address_results)

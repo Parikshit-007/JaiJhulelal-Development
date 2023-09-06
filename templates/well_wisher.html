@@ -1,0 +1,102 @@
+<!DOCTYPE html> {% extends 'basic.html' %} {% load static %}
+<html lang="en">
+{% block body %}
+
+<!--=================================
+=            Single Blog            =
+==================================-->
+<section class="blog single-blog section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <article class="single-post">
+                    <h2>{{ well_wisher.name }}</h2>
+
+                    <img src="{{ well_wisher.image.url }}" alt="Profile Image" alt="article-01">
+                    <p>Proffesion: {{ well_wisher.profession }}</p>
+                    <p>Email: {{ well_wisher.email }}</p>
+                    <p>Phone Number: {{ well_wisher.phone_number }}</p>
+                    <p>Description: {{ well_wisher.desc }} </p>
+                </article>
+                <!-- <div class="block comment">
+                    <h4>Leave A Comment</h4>
+                    <form action="#">
+                         Message 
+                        <div class="form-group mb-30">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="8" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                Name 
+                                <div class="form-group mb-30">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                 Email 
+                                <div class="form-group mb-30">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-transparent">Leave Comment</button>
+                    </form>
+                </div>
+            </div> -->
+                <!-- <div class="col-lg-4">
+                <div class="sidebar">
+                   
+                    <div class="widget search p-0">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="expire" placeholder="Search...">
+                            <span class="input-group-addon"><i class="fa fa-search px-3"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="widget category">
+                    
+                        <h5 class="widget-header">Categories</h5>
+                        <ul class="category-list">
+                            <li><a href="category.html">Appearel <span class="float-right">(2)</span></a></li>
+                            <li><a href="category.html">Accesories <span class="float-right">(5)</span></a></li>
+                            <li><a href="category.html">Business<span class="float-right">(7)</span></a></li>
+                            <li><a href="category.html">Entertaiment<span class="float-right">(3)</span></a></li>
+                            <li><a href="category.html">Education<span class="float-right">(9)</span></a></li>
+                        </ul>
+                    </div>
+                 
+                    <div class="widget archive">
+                        
+                        <h5 class="widget-header">Archives</h5>
+                        <ul class="archive-list">
+                            <li><a href="ad-list-view.html">January 2017</a></li>
+                            <li><a href="ad-list-view.html">February 2017</a></li>
+                            <li><a href="ad-list-view.html">March 2017</a></li>
+                            <li><a href="ad-list-view.html">April 2017</a></li>
+                            <li><a href="ad-list-view.html">May 2017</a></li>
+                        </ul>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
+<!--============================
+=            Footer            =
+=============================-->
+
+{% block footer %} {% endblock %}
+<!-- 
+Essential Scripts
+=====================================-->
+{% block script %}
+<!-- Your additional JavaScript code goes here -->
+{% endblock %}
+
+</body>
+
+</html>

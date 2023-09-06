@@ -1,0 +1,11 @@
+<!-- templates/admin/import_excel.html -->
+
+{% extends "admin/base.html" %} {% load static %} {% block content %}
+<div class="app-professional model-professional">
+    <h1>Import Data from Excel</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit" name="apply" class="default">Import Data</button>
+    </form>
+</div>
+{% endblock %}

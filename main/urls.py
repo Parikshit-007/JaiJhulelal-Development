@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from .views.homepage import home, aboutus, FullView, contactus,terms_condition
+from .views.homepage import home, aboutus, FullView, contactus,terms_condition, well_wisher_detail
 from .views.login import user_login, user_logout
 from .views.signup import user_signup
 from main.views.cat import professionals_by_profession, separate_profession
@@ -10,9 +10,12 @@ from main.views.community_entry import request_community_entry, verify_community
 from main.views.search import search
 from django.views.generic import RedirectView
 from main.views.forget_password import forget_password, verify_otp, reset_password
+from main.admin import upload_excel_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('upload_excel/', upload_excel_view, name='upload_excel'),
+   # path('admin/upload_excel/', include('main.urls')),
     path('webapp/', RedirectView.as_view(url='/main/')),
     path('', RedirectView.as_view(url='main/', permanent=True)),
     path("main/", home, name='home'),
@@ -32,4 +35,7 @@ urlpatterns = [
     path('main/search/', search, name='search'),
     path('main/entry-success/', community_entry_success, name='community_entry_success'),
     path('main/request-entry/', request_community_entry, name='request_community_entry'),
+    path('well-wisher/<slug:slug>/', well_wisher_detail, name='well_wisher_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

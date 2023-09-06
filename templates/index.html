@@ -1,6 +1,7 @@
 <!DOCTYPE html> {% extends 'basic.html' %} {% load static %}
 <html lang="en">
-{% block body %}
+{% block body %} {% load custom_filters %}
+
 <!-- Your specific content for the body section goes here -->
 
 
@@ -81,6 +82,7 @@
 =            Popular deals section            =
 ============================================-->
 
+
 <section class="popular-deals section bg-gray">
     <div class="container">
         <div class="row">
@@ -92,160 +94,52 @@
             </div>
         </div>
         <div class="row">
-            <!-- offer 01 -->
             <div class="col-lg-12">
                 <div class="trending-ads-slide">
+                    {% for well_wisher in well_wishers %}
                     <div class="col-sm-12 col-lg-4">
                         <!-- product card -->
                         <div class="product-item bg-light">
                             <div class="card">
                                 <div class="thumb-content">
-                                    <!-- <div class="price">$200</div> -->
-                                    <a href="#">
-                                        <img class="card-img-top img-fluid" src="{% static 'images/products/Narenndrra Kukreja.jpg' %}" alt="Card image cap">
+                                    <a href="{% url 'well_wisher_detail' well_wisher.slug|slugify %}">
+                                        <img class="card-img-top img-fluid" src="{{well_wisher.image.url}}" alt="{{ well_wisher.name }}">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="#">Narendra Kukreja</a></h4>
+                                    <h4 class="card-title"><a href="{% url 'well_wisher_detail' well_wisher.slug|slugify %}">{{ well_wisher.name }}</a></h4>
                                     <ul class="list-inline product-meta">
                                         <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-briefcase"></i>Entrepreneur</a>
+                                            <a href="{% url 'well_wisher_detail' well_wisher.slug|slugify %}"><i class="fa fa-briefcase"></i>{{ well_wisher.profession }}</a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-calendar"></i>26th December</a>
+                                            <a href="{% url 'well_wisher_detail' well_wisher.slug|slugify %}"><i class="fa fa-calendar"></i>{{ well_wisher.birthdate|date:"jS F" }}</a>
                                         </li>
                                     </ul>
                                     <p class="card-text"></p>
                                     <div class="product-ratings">
                                         <ul class="list-inline">
+                                            {% for _ in well_wisher.star_range %}
                                             <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
+                                            {% endfor %} {% for _ in well_wisher.empty_star_range %}
                                             <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                            {% endfor %}
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
-                    <div class="col-sm-12 col-lg-4">
-                        <!-- product card -->
-                        <div class="product-item bg-light">
-                            <div class="card">
-                                <div class="thumb-content">
-                                    <!-- <div class="price">$200</div> -->
-                                    <a href="#">
-                                        <img class="card-img-top img-fluid" src="{% static 'images/products/Kaajal_Chandiramani.jpg' %}" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="#">Kaajal Chandiramani</a></h4>
-                                    <ul class="list-inline product-meta">
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-microphone"></i>Singer</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-calendar"></i>26th December</a>
-                                        </li>
-                                    </ul>
-                                    <p class="card-text"></p>
-                                    <div class="product-ratings">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                    <div class="col-sm-12 col-lg-4">
-                        <!-- product card -->
-                        <div class="product-item bg-light">
-                            <div class="card">
-                                <div class="thumb-content">
-                                    <!-- <div class="price">$200</div> -->
-                                    <a href="#">
-                                        <img class="card-img-top img-fluid" src="{% static 'images/products/Poonam_Kukreja.jpg'%}" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="#">Poonam Kukreja</a></h4>
-                                    <ul class="list-inline product-meta">
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-briefcase"></i>Entrepreneur</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-calendar"></i>26th December</a>
-                                        </li>
-                                    </ul>
-                                    <p class="card-text"></p>
-                                    <div class="product-ratings">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-                    <div class="col-sm-12 col-lg-4">
-                        <!-- product card -->
-                        <div class="product-item bg-light">
-                            <div class="card">
-                                <div class="thumb-content">
-                                    <!-- <div class="price">$200</div> -->
-                                    <a href="#">
-                                        <img class="card-img-top img-fluid" src="{% static 'images/products/Mahesh Punjabi Ji.jpg'%}" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="#">Mahesh Punjabi</a></h4>
-                                    <ul class="list-inline product-meta">
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-briefcase"></i>Entrepreneur</a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="#"><i class="fa fa-calendar"></i>26th December</a>
-                                        </li>
-                                    </ul>
-                                    <p class="card-text"></p>
-                                    <div class="product-ratings">
-                                        <ul class="list-inline">
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+
+
+
+
+
+
     </div>
 </section>
 
@@ -268,7 +162,7 @@
                 <div class="row">
                     <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
                         <div class="category-block">
-                            <a href="{% url 'separate_profession' 'estate_agent' %}">
+                            <a href="{% url 'separate_profession' 'estate agent' %}">
                                 <div class="header">
                                     <i class="fa fa-home icon-bg-1"></i>
                                     <!-- Change the icon class -->
